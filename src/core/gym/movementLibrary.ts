@@ -1,4 +1,6 @@
-export const movementLibrary = [
+import type { Movement } from '../../types/movement';
+
+export const movementLibrary: Movement[] = [
   {
     code: 'wu_cat_cow',
     name: 'Cat-Cow Spine Prep',

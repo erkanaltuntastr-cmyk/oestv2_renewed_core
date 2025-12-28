@@ -1,10 +1,18 @@
 const hasLocalStorage = typeof window !== 'undefined' && typeof window.localStorage !== 'undefined';
-const memoryStore = new Map();
+const memoryStore = new Map<string, string>();
 const STORAGE_PREFIX = 'oestv2';
 
-const getStorageKey = (namespace) => `${STORAGE_PREFIX}:${namespace}`;
+type NamespaceValue = unknown;
 
-const read = (key) => {
+type StorageNamespace<T = NamespaceValue> = {
+  get: () => T | null;
+  set: (value: T) => void;
+  clear: () => void;
+};
+
+const getStorageKey = (namespace: string) => `${STORAGE_PREFIX}:${namespace}`;
+
+const read = (key: string): unknown => {
   try {
     const value = hasLocalStorage ? window.localStorage.getItem(key) : memoryStore.get(key);
     return value ? JSON.parse(value) : null;
@@ -14,7 +22,7 @@ const read = (key) => {
   }
 };
 
-const write = (key, value) => {
+const write = (key: string, value: unknown) => {
   try {
     const serialized = JSON.stringify(value);
     if (hasLocalStorage) {
@@ -27,7 +35,7 @@ const write = (key, value) => {
   }
 };
 
-const remove = (key) => {
+const remove = (key: string) => {
   try {
     if (hasLocalStorage) {
       window.localStorage.removeItem(key);
@@ -38,7 +46,7 @@ const remove = (key) => {
   }
 };
 
-const createNamespace = (namespace) => {
+const createNamespace = <T = NamespaceValue>(namespace: string): StorageNamespace<T> => {
   const key = getStorageKey(namespace);
   return {
     get: () => read(key),

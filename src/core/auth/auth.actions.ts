@@ -1,7 +1,23 @@
+import type { StateCreator } from 'zustand';
 import authService from './authService';
 import { storageService } from '../storage/storageService';
+import type { AuthState } from './auth.state';
+import type { User } from '../../types/user';
 
-const persistUser = (user) => {
+export interface AuthActions {
+  setUser: (user: User | null) => void;
+  setLoading: (isLoading: boolean) => void;
+  setOnboardingCompleted: (completed: boolean) => void;
+  login: (email: string, password: string) => Promise<User>;
+  logout: () => void;
+  checkSession: () => boolean;
+}
+
+export type AuthCreator = StateCreator<AuthState & AuthActions, [], [], AuthActions>;
+
+type SessionData = { token: string | null; expiresAt: number | null } | null;
+
+const persistUser = (user: User | null): void => {
   if (user) {
     storageService.user.set(user);
   } else {
@@ -9,7 +25,7 @@ const persistUser = (user) => {
   }
 };
 
-const persistSession = (session) => {
+const persistSession = (session: SessionData): void => {
   if (session && session.token) {
     storageService.session.set(session);
   } else {
@@ -17,7 +33,7 @@ const persistSession = (session) => {
   }
 };
 
-export const createAuthActions = (set, get) => ({
+export const createAuthActions: AuthCreator = (set, get) => ({
   setUser: (user) => {
     persistUser(user);
     set({
@@ -30,9 +46,9 @@ export const createAuthActions = (set, get) => ({
   setOnboardingCompleted: (completed) => {
     const currentUser = get().user;
     const updatedUser = currentUser ? { ...currentUser, onboardingCompleted: completed } : currentUser;
-    persistUser(updatedUser);
+    persistUser(updatedUser as User | null);
     set({
-      user: updatedUser,
+      user: updatedUser as User | null,
       onboardingCompleted: Boolean(completed),
     });
   },
