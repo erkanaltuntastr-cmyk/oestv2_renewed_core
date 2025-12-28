@@ -1,9 +1,9 @@
-import React, { memo, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import Card from '../atoms/Card';
 import SectionTitle from '../atoms/SectionTitle';
 import { getPRs } from '../../core/analytics/progressionAnalytics';
 
-export const PRList = memo(({ history = [] }) => {
+export const PRList = ({ history = [] }) => {
   const prs = useMemo(() => getPRs(history), [history]);
   const entries = Object.entries(prs);
 
@@ -29,8 +29,6 @@ export const PRList = memo(({ history = [] }) => {
       </Card>
     </div>
   );
-});
-
-PRList.displayName = 'PRList';
+};
 
 export default PRList;

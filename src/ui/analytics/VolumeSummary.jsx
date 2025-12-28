@@ -1,4 +1,4 @@
-import React, { memo, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import Card from '../atoms/Card';
 import SectionTitle from '../atoms/SectionTitle';
 import {
@@ -26,16 +26,14 @@ const getCurrentMonthKey = () => {
 
 const formatNumber = (value) => new Intl.NumberFormat().format(Math.round(value || 0));
 
-const VolumeCard = memo(({ label, value }) => (
+const VolumeCard = ({ label, value }) => (
   <Card className="p-4 bg-white border border-gray-100 shadow-sm">
     <p className="text-xs uppercase tracking-wide text-gray-500 mb-1">{label}</p>
     <p className="text-2xl font-semibold text-gray-900">{formatNumber(value)}</p>
   </Card>
-));
+);
 
-VolumeCard.displayName = 'VolumeCard';
-
-export const VolumeSummary = memo(({ history = [] }) => {
+export const VolumeSummary = ({ history = [] }) => {
   const summary = useMemo(() => {
     const totalVolume = getTotalVolume(history);
     const dailyVolumes = getDailyVolume(history);
@@ -65,8 +63,6 @@ export const VolumeSummary = memo(({ history = [] }) => {
       </div>
     </div>
   );
-});
-
-VolumeSummary.displayName = 'VolumeSummary';
+};
 
 export default VolumeSummary;
