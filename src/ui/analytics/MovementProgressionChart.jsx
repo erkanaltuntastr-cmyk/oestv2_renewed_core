@@ -1,11 +1,11 @@
-import React, { memo, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import Card from '../atoms/Card';
 import SectionTitle from '../atoms/SectionTitle';
 import { getMovementProgression } from '../../core/analytics/progressionAnalytics';
 
 const formatDate = (timestamp) => new Date(timestamp).toLocaleDateString();
 
-export const MovementProgressionChart = memo(({ movementCode, history = [] }) => {
+export const MovementProgressionChart = ({ movementCode, history = [] }) => {
   const progression = useMemo(
     () => getMovementProgression(history, movementCode),
     [history, movementCode],
@@ -53,8 +53,6 @@ export const MovementProgressionChart = memo(({ movementCode, history = [] }) =>
       </Card>
     </div>
   );
-});
-
-MovementProgressionChart.displayName = 'MovementProgressionChart';
+};
 
 export default MovementProgressionChart;

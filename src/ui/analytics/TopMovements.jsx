@@ -1,9 +1,9 @@
-import React, { memo, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import Card from '../atoms/Card';
 import SectionTitle from '../atoms/SectionTitle';
 import { getTopMovements } from '../../core/analytics/frequencyAnalytics';
 
-export const TopMovements = memo(({ history = [] }) => {
+export const TopMovements = ({ history = [] }) => {
   const topMovements = useMemo(() => getTopMovements(history, 5), [history]);
 
   return (
@@ -28,8 +28,6 @@ export const TopMovements = memo(({ history = [] }) => {
       </Card>
     </div>
   );
-});
-
-TopMovements.displayName = 'TopMovements';
+};
 
 export default TopMovements;

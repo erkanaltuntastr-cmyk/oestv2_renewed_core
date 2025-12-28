@@ -11,8 +11,6 @@ declare global {
       ? DeepPartial<T[P]>
       : T[P];
   };
-
-  const __APP_VERSION__: string;
 }
 
 export {};
