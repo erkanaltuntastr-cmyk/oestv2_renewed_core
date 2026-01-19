@@ -5,14 +5,21 @@ type NormalizedHistoryEntry = HistoryEntry;
 
 type HistoryValidationResult = { valid: boolean; errors: string[] };
 
-const normalizeMovement = (movement: Partial<WorkoutMovement>): WorkoutMovement => ({
-  code: movement.code ?? '',
-  name: movement.name ?? '',
-  sets: Number.isFinite(movement.sets) ? Number(movement.sets) : 0,
-  reps: Number.isFinite(movement.reps) ? Number(movement.reps) : 0,
-  weight: movement.weight === null || movement.weight === undefined ? null : Number(movement.weight),
-  id: Number.isFinite(movement.id) ? Number(movement.id) : 0,
-});
+const normalizeMovement = (movement: Partial<WorkoutMovement>): WorkoutMovement => {
+  const setsValue = Number(movement.sets);
+  const repsValue = Number(movement.reps);
+  const weightValue = movement.weight === null || movement.weight === undefined ? null : Number(movement.weight);
+  const idValue = Number(movement.id);
+
+  return {
+    code: movement.code ?? '',
+    name: movement.name ?? '',
+    sets: Number.isFinite(setsValue) ? setsValue : 0,
+    reps: Number.isFinite(repsValue) ? repsValue : 0,
+    weight: weightValue === null || weightValue === undefined || !Number.isFinite(weightValue) ? null : weightValue,
+    id: Number.isFinite(idValue) ? idValue : 0,
+  };
+};
 
 export const normalizeHistoryEntry = (raw: Partial<HistoryEntry> = {}): NormalizedHistoryEntry => {
   const movements = Array.isArray(raw.movements) ? raw.movements.map(normalizeMovement) : [];

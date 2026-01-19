@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Year 7 Religious Education Test</title>
+    <style>
+      :root {
+        --blue-900: #1f3c88;
+        --blue-100: #e8f2ff;
+        --blue-50: #f5f9ff;
+        --accent: #5aa9e6;
+        --text: #1f2937;
+        --border: #c7d8f2;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 24px;
+        font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+        color: var(--text);
+        background: var(--blue-50);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: #ffffff;
+        padding: 24px;
+        border-radius: 16px;
+        box-shadow: 0 12px 30px rgba(31, 60, 136, 0.12);
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: var(--blue-900);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 8px;
+      }
+
+      .subtitle {
+        text-align: center;
+        margin-bottom: 24px;
+        color: #36548f;
+      }
+
+      .section-header {
+        margin-top: 32px;
+        margin-bottom: 16px;
+        padding: 12px 16px;
+        background: var(--blue-100);
+        border-radius: 12px;
+        border: 1px solid var(--border);
+      }
+
+      .question-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      .question-box {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 16px;
+        background: #ffffff;
+      }
+
+      .question-box p {
+        margin: 0 0 12px;
+        font-weight: 600;
+      }
+
+      .options label {
+        display: block;
+        margin-bottom: 6px;
+        padding: 6px 8px;
+        border-radius: 8px;
+        transition: background 0.2s ease;
+        cursor: pointer;
+      }
+
+      .options label:hover {
+        background: var(--blue-50);
+      }
+
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        font-size: 16px;
+      }
+
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .finish-section {
+        margin-top: 24px;
+        padding: 16px;
+        border-radius: 12px;
+        background: var(--blue-100);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .results-panel {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 12px;
+        background: #ffffff;
+      }
+
+      .results-panel ul {
+        margin: 8px 0 0 18px;
+      }
+
+      button {
+        background: var(--accent);
+        color: #ffffff;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      button:disabled {
+        background: #9bbfe4;
+        cursor: not-allowed;
+      }
+
+      #completion-message {
+        font-weight: 700;
+        color: var(--blue-900);
+      }
+
+      .teacher-tools {
+        margin-top: 24px;
+        display: none;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 16px;
+        background: #ffffff;
+      }
+
+      details summary {
+        font-weight: 700;
+        cursor: pointer;
+        color: var(--blue-900);
+      }
+
+      .answer-list,
+      .mark-scheme {
+        margin: 12px 0 20px;
+        padding-left: 20px;
+      }
+
+      .prompt-box {
+        border: 1px dashed var(--accent);
+        border-radius: 12px;
+        padding: 16px;
+        background: var(--blue-50);
+      }
+
+      .prompt-box textarea {
+        min-height: 140px;
+      }
+
+      .prompt-actions {
+        margin-top: 12px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .ai-pack {
+        margin-top: 20px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 16px;
+        background: #ffffff;
+        display: none;
+      }
+
+      @media print {
+        body {
+          background: #ffffff;
+          padding: 0;
+        }
+
+        .container {
+          box-shadow: none;
+          border-radius: 0;
+        }
+
+        button,
+        .finish-section,
+        .prompt-actions {
+          display: none;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .question-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Year 7 Religious Education Test</h1>
+      <p class="subtitle">World Religions, Beliefs, and Vocabulary</p>
+
+      <div class="section-header">
+        <h2>Section A: Multiple Choice Questions (48)</h2>
+      </div>
+      <div class="question-grid" id="mcq-section">
+        <div class="question-box">
+          <p>1. Where did the Dharmic religions begin?</p>
+          <div class="options">
+            <label><input type="radio" name="q1" value="A" /> A) India</label>
+            <label><input type="radio" name="q1" value="B" /> B) Arabia</label>
+            <label><input type="radio" name="q1" value="C" /> C) Europe</label>
+            <label><input type="radio" name="q1" value="D" /> D) Jerusalem</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>2. Which list contains Dharmic religions?</p>
+          <div class="options">
+            <label><input type="radio" name="q2" value="A" /> A) Judaism, Christianity, Islam</label>
+            <label><input type="radio" name="q2" value="B" /> B) Hinduism, Buddhism, Sikhism, Jainism</label>
+            <label><input type="radio" name="q2" value="C" /> C) Hinduism, Islam, Christianity, Jainism</label>
+            <label><input type="radio" name="q2" value="D" /> D) Buddhism, Islam, Judaism, Sikhism</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>3. In Dharmic religions, what does dharma mean?</p>
+          <div class="options">
+            <label><input type="radio" name="q3" value="A" /> A) Living in the right way</label>
+            <label><input type="radio" name="q3" value="B" /> B) Building a place of worship</label>
+            <label><input type="radio" name="q3" value="C" /> C) The holy book of Islam</label>
+            <label><input type="radio" name="q3" value="D" /> D) The belief in many gods</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>4. What does karma mean in the Dharmic religions?</p>
+          <div class="options">
+            <label><input type="radio" name="q4" value="A" /> A) Your actions have consequences</label>
+            <label><input type="radio" name="q4" value="B" /> B) The cycle of birth, death, and rebirth</label>
+            <label><input type="radio" name="q4" value="C" /> C) The belief in one God</label>
+            <label><input type="radio" name="q4" value="D" /> D) The idea of a holy land</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>5. What is samsara?</p>
+          <div class="options">
+            <label><input type="radio" name="q5" value="A" /> A) The cycle of birth, death and rebirth</label>
+            <label><input type="radio" name="q5" value="B" /> B) The holy book of Judaism</label>
+            <label><input type="radio" name="q5" value="C" /> C) The belief in one God</label>
+            <label><input type="radio" name="q5" value="D" /> D) A humanist ceremony</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>6. Moksha or nirvana is described as...</p>
+          <div class="options">
+            <label><input type="radio" name="q6" value="A" /> A) Freedom from the cycle of samsara</label>
+            <label><input type="radio" name="q6" value="B" /> B) A place of worship</label>
+            <label><input type="radio" name="q6" value="C" /> C) A holy city in Islam</label>
+            <label><input type="radio" name="q6" value="D" /> D) A list of moral rules</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>7. Which practice is mentioned in Dharmic religions?</p>
+          <div class="options">
+            <label><input type="radio" name="q7" value="A" /> A) Meditation</label>
+            <label><input type="radio" name="q7" value="B" /> B) Pilgrimage to the Ka'bah</label>
+            <label><input type="radio" name="q7" value="C" /> C) Praying in a synagogue only</label>
+            <label><input type="radio" name="q7" value="D" /> D) Following the Ten Commandments only</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>8. Abrahamic religions trace their history back to...</p>
+          <div class="options">
+            <label><input type="radio" name="q8" value="A" /> A) Guru Nanak</label>
+            <label><input type="radio" name="q8" value="B" /> B) Prophet Abraham</label>
+            <label><input type="radio" name="q8" value="C" /> C) Siddhartha Gautama</label>
+            <label><input type="radio" name="q8" value="D" /> D) Brahman</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>9. Where did the Abrahamic religions begin?</p>
+          <div class="options">
+            <label><input type="radio" name="q9" value="A" /> A) Middle East</label>
+            <label><input type="radio" name="q9" value="B" /> B) India</label>
+            <label><input type="radio" name="q9" value="C" /> C) Europe</label>
+            <label><input type="radio" name="q9" value="D" /> D) Africa</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>10. Which religions are Abrahamic?</p>
+          <div class="options">
+            <label><input type="radio" name="q10" value="A" /> A) Judaism, Christianity, Islam</label>
+            <label><input type="radio" name="q10" value="B" /> B) Hinduism, Buddhism, Sikhism</label>
+            <label><input type="radio" name="q10" value="C" /> C) Jainism, Hinduism, Buddhism</label>
+            <label><input type="radio" name="q10" value="D" /> D) Humanism, Atheism, Theism</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>11. Monotheism means...</p>
+          <div class="options">
+            <label><input type="radio" name="q11" value="A" /> A) Belief in one God</label>
+            <label><input type="radio" name="q11" value="B" /> B) Belief in many gods</label>
+            <label><input type="radio" name="q11" value="C" /> C) Doubt about God</label>
+            <label><input type="radio" name="q11" value="D" /> D) No belief in God</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>12. Which holy book belongs to Islam?</p>
+          <div class="options">
+            <label><input type="radio" name="q12" value="A" /> A) Torah</label>
+            <label><input type="radio" name="q12" value="B" /> B) Bible</label>
+            <label><input type="radio" name="q12" value="C" /> C) Qur'an</label>
+            <label><input type="radio" name="q12" value="D" /> D) Sacred Texts</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>13. Atheism is the belief that...</p>
+          <div class="options">
+            <label><input type="radio" name="q13" value="A" /> A) there is no God or gods</label>
+            <label><input type="radio" name="q13" value="B" /> B) there are many gods</label>
+            <label><input type="radio" name="q13" value="C" /> C) God is everywhere</label>
+            <label><input type="radio" name="q13" value="D" /> D) life is sacred</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>14. Atheists often look to...</p>
+          <div class="options">
+            <label><input type="radio" name="q14" value="A" /> A) science, reason, and human experience</label>
+            <label><input type="radio" name="q14" value="B" /> B) holy books only</label>
+            <label><input type="radio" name="q14" value="C" /> C) prophets only</label>
+            <label><input type="radio" name="q14" value="D" /> D) temples only</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>15. Humanism focuses on...</p>
+          <div class="options">
+            <label><input type="radio" name="q15" value="A" /> A) people, reason, and compassion</label>
+            <label><input type="radio" name="q15" value="B" /> B) prayer only</label>
+            <label><input type="radio" name="q15" value="C" /> C) a holy land</label>
+            <label><input type="radio" name="q15" value="D" /> D) many gods</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>16. Humanists believe that...</p>
+          <div class="options">
+            <label><input type="radio" name="q16" value="A" /> A) this life is the only one we have</label>
+            <label><input type="radio" name="q16" value="B" /> B) we are always reborn</label>
+            <label><input type="radio" name="q16" value="C" /> C) heaven is guaranteed</label>
+            <label><input type="radio" name="q16" value="D" /> D) God guides humanity</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>17. Humanists do not believe in...</p>
+          <div class="options">
+            <label><input type="radio" name="q17" value="A" /> A) God, heaven, or hell</label>
+            <label><input type="radio" name="q17" value="B" /> B) science or evidence</label>
+            <label><input type="radio" name="q17" value="C" /> C) kindness and fairness</label>
+            <label><input type="radio" name="q17" value="D" /> D) ceremonies for events</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>18. Humanist ceremonies can be used for...</p>
+          <div class="options">
+            <label><input type="radio" name="q18" value="A" /> A) births, weddings, and funerals</label>
+            <label><input type="radio" name="q18" value="B" /> B) only prayer</label>
+            <label><input type="radio" name="q18" value="C" /> C) only fasting</label>
+            <label><input type="radio" name="q18" value="D" /> D) only festivals</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>19. Beliefs can lead people to...</p>
+          <div class="options">
+            <label><input type="radio" name="q19" value="A" /> A) stand up for human rights</label>
+            <label><input type="radio" name="q19" value="B" /> B) ignore the poor</label>
+            <label><input type="radio" name="q19" value="C" /> C) avoid charity</label>
+            <label><input type="radio" name="q19" value="D" /> D) stop caring about others</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>20. Religious rules can include guidance about...</p>
+          <div class="options">
+            <label><input type="radio" name="q20" value="A" /> A) what to wear</label>
+            <label><input type="radio" name="q20" value="B" /> B) ignoring festivals</label>
+            <label><input type="radio" name="q20" value="C" /> C) never praying</label>
+            <label><input type="radio" name="q20" value="D" /> D) removing all rules</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>21. Religious rules can include guidance about...</p>
+          <div class="options">
+            <label><input type="radio" name="q21" value="A" /> A) how to worship and pray</label>
+            <label><input type="radio" name="q21" value="B" /> B) denying worship</label>
+            <label><input type="radio" name="q21" value="C" /> C) never celebrating festivals</label>
+            <label><input type="radio" name="q21" value="D" /> D) removing community rules</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>22. Belief in meaning of life helps people deal with questions like...</p>
+          <div class="options">
+            <label><input type="radio" name="q22" value="A" /> A) why are we here?</label>
+            <label><input type="radio" name="q22" value="B" /> B) how to build a temple</label>
+            <label><input type="radio" name="q22" value="C" /> C) how to write a holy book</label>
+            <label><input type="radio" name="q22" value="D" /> D) which sport is best</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>23. Some religious people believe their purpose is to...</p>
+          <div class="options">
+            <label><input type="radio" name="q23" value="A" /> A) serve God and others</label>
+            <label><input type="radio" name="q23" value="B" /> B) avoid all guidance</label>
+            <label><input type="radio" name="q23" value="C" /> C) ignore suffering</label>
+            <label><input type="radio" name="q23" value="D" /> D) avoid worship</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>24. Some religious people believe they will achieve...</p>
+          <div class="options">
+            <label><input type="radio" name="q24" value="A" /> A) life after death in heaven</label>
+            <label><input type="radio" name="q24" value="B" /> B) no afterlife at all</label>
+            <label><input type="radio" name="q24" value="C" /> C) immediate rebirth without earning it</label>
+            <label><input type="radio" name="q24" value="D" /> D) no guidance in life</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>25. Some believe they will be...</p>
+          <div class="options">
+            <label><input type="radio" name="q25" value="A" /> A) reborn into other lives until earning heavenly bliss</label>
+            <label><input type="radio" name="q25" value="B" /> B) instantly perfect without effort</label>
+            <label><input type="radio" name="q25" value="C" /> C) guided only by science</label>
+            <label><input type="radio" name="q25" value="D" /> D) without any beliefs</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>26. Belief that life is sacred means...</p>
+          <div class="options">
+            <label><input type="radio" name="q26" value="A" /> A) all life should be treated with respect</label>
+            <label><input type="radio" name="q26" value="B" /> B) animals are unimportant</label>
+            <label><input type="radio" name="q26" value="C" /> C) only the body matters</label>
+            <label><input type="radio" name="q26" value="D" /> D) worship is optional</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>27. Many believers think there is an inner self such as...</p>
+          <div class="options">
+            <label><input type="radio" name="q27" value="A" /> A) a spirit or a soul</label>
+            <label><input type="radio" name="q27" value="B" /> B) only a physical body</label>
+            <label><input type="radio" name="q27" value="C" /> C) a holy building</label>
+            <label><input type="radio" name="q27" value="D" /> D) a sacred text</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>28. Hinduism began around...</p>
+          <div class="options">
+            <label><input type="radio" name="q28" value="A" /> A) 1700 BCE</label>
+            <label><input type="radio" name="q28" value="B" /> B) 2000 BCE</label>
+            <label><input type="radio" name="q28" value="C" /> C) 610 CE</label>
+            <label><input type="radio" name="q28" value="D" /> D) 1st century CE</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>29. Judaism began with...</p>
+          <div class="options">
+            <label><input type="radio" name="q29" value="A" /> A) Abraham</label>
+            <label><input type="radio" name="q29" value="B" /> B) Guru Nanak</label>
+            <label><input type="radio" name="q29" value="C" /> C) Muhammad</label>
+            <label><input type="radio" name="q29" value="D" /> D) Jesus</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>30. Buddhism was founded by...</p>
+          <div class="options">
+            <label><input type="radio" name="q30" value="A" /> A) Siddhartha Gautama (the Buddha)</label>
+            <label><input type="radio" name="q30" value="B" /> B) Abraham</label>
+            <label><input type="radio" name="q30" value="C" /> C) Moses</label>
+            <label><input type="radio" name="q30" value="D" /> D) Jesus</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>31. Christianity grew from Judaism in the...</p>
+          <div class="options">
+            <label><input type="radio" name="q31" value="A" /> A) 1st century CE</label>
+            <label><input type="radio" name="q31" value="B" /> B) 1700 BCE</label>
+            <label><input type="radio" name="q31" value="C" /> C) 563 BCE</label>
+            <label><input type="radio" name="q31" value="D" /> D) 1400 CE</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>32. Islam began in 610 CE when...</p>
+          <div class="options">
+            <label><input type="radio" name="q32" value="A" /> A) Muhammad received God's message in the Qur'an</label>
+            <label><input type="radio" name="q32" value="B" /> B) Abraham made a covenant</label>
+            <label><input type="radio" name="q32" value="C" /> C) Jesus taught in the synagogue</label>
+            <label><input type="radio" name="q32" value="D" /> D) Guru Nanak founded Sikhism</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>33. Sikhism was founded by...</p>
+          <div class="options">
+            <label><input type="radio" name="q33" value="A" /> A) Guru Nanak</label>
+            <label><input type="radio" name="q33" value="B" /> B) Moses</label>
+            <label><input type="radio" name="q33" value="C" /> C) Abraham</label>
+            <label><input type="radio" name="q33" value="D" /> D) Siddhartha Gautama</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>34. The timeline says Sikhism teaches...</p>
+          <div class="options">
+            <label><input type="radio" name="q34" value="A" /> A) equality and service</label>
+            <label><input type="radio" name="q34" value="B" /> B) only prayer and fasting</label>
+            <label><input type="radio" name="q34" value="C" /> C) no community living</label>
+            <label><input type="radio" name="q34" value="D" /> D) rejecting holy books</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>35. Which is listed as common across the world religions?</p>
+          <div class="options">
+            <label><input type="radio" name="q35" value="A" /> A) Holy books, symbols, festivals, and followers</label>
+            <label><input type="radio" name="q35" value="B" /> B) One single leader everywhere</label>
+            <label><input type="radio" name="q35" value="C" /> C) No places of worship</label>
+            <label><input type="radio" name="q35" value="D" /> D) Only one language</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>36. What does “afterlife” mean in the vocabulary list?</p>
+          <div class="options">
+            <label><input type="radio" name="q36" value="A" /> A) What some people believe happens after we die</label>
+            <label><input type="radio" name="q36" value="B" /> B) A religious celebration</label>
+            <label><input type="radio" name="q36" value="C" /> C) A holy building</label>
+            <label><input type="radio" name="q36" value="D" /> D) A moral rule</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>37. Agnosticism means...</p>
+          <div class="options">
+            <label><input type="radio" name="q37" value="A" /> A) we cannot know for certain whether God exists</label>
+            <label><input type="radio" name="q37" value="B" /> B) belief in many gods</label>
+            <label><input type="radio" name="q37" value="C" /> C) belief in one God</label>
+            <label><input type="radio" name="q37" value="D" /> D) worshipping in a mosque</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>38. What is a “conscience”?</p>
+          <div class="options">
+            <label><input type="radio" name="q38" value="A" /> A) A person’s inner sense of right and wrong</label>
+            <label><input type="radio" name="q38" value="B" /> B) A holy book</label>
+            <label><input type="radio" name="q38" value="C" /> C) A religious building</label>
+            <label><input type="radio" name="q38" value="D" /> D) A celebration</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>39. Empathy is...</p>
+          <div class="options">
+            <label><input type="radio" name="q39" value="A" /> A) the ability to understand and share feelings of others</label>
+            <label><input type="radio" name="q39" value="B" /> B) a holy city</label>
+            <label><input type="radio" name="q39" value="C" /> C) a prophet’s message</label>
+            <label><input type="radio" name="q39" value="D" /> D) a sacred text</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>40. The Enlightenment is described as...</p>
+          <div class="options">
+            <label><input type="radio" name="q40" value="A" /> A) an 18th-century period stressing reason and science</label>
+            <label><input type="radio" name="q40" value="B" /> B) a religious festival</label>
+            <label><input type="radio" name="q40" value="C" /> C) a place of worship</label>
+            <label><input type="radio" name="q40" value="D" /> D) a type of holy book</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>41. The Golden Rule teaches us to...</p>
+          <div class="options">
+            <label><input type="radio" name="q41" value="A" /> A) treat others as we would like to be treated</label>
+            <label><input type="radio" name="q41" value="B" /> B) avoid helping others</label>
+            <label><input type="radio" name="q41" value="C" /> C) ignore community rules</label>
+            <label><input type="radio" name="q41" value="D" /> D) reject all religions</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>42. “Happy Human” is...</p>
+          <div class="options">
+            <label><input type="radio" name="q42" value="A" /> A) the international symbol of Humanism</label>
+            <label><input type="radio" name="q42" value="B" /> B) a holy book</label>
+            <label><input type="radio" name="q42" value="C" /> C) a city in the Holy Land</label>
+            <label><input type="radio" name="q42" value="D" /> D) a prophet</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>43. Humanism is defined as...</p>
+          <div class="options">
+            <label><input type="radio" name="q43" value="A" /> A) a non-religious worldview for a good life without religion</label>
+            <label><input type="radio" name="q43" value="B" /> B) belief in many gods</label>
+            <label><input type="radio" name="q43" value="C" /> C) belief in one God only</label>
+            <label><input type="radio" name="q43" value="D" /> D) a type of sacred text</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>44. Indian (Dharmic) religions are...</p>
+          <div class="options">
+            <label><input type="radio" name="q44" value="A" /> A) Hinduism, Buddhism, and Sikhism</label>
+            <label><input type="radio" name="q44" value="B" /> B) Judaism, Christianity, Islam</label>
+            <label><input type="radio" name="q44" value="C" /> C) Humanism, Atheism, Agnosticism</label>
+            <label><input type="radio" name="q44" value="D" /> D) Judaism, Sikhism, Islam</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>45. Polytheism means...</p>
+          <div class="options">
+            <label><input type="radio" name="q45" value="A" /> A) belief in many gods</label>
+            <label><input type="radio" name="q45" value="B" /> B) belief in one God</label>
+            <label><input type="radio" name="q45" value="C" /> C) no belief in God</label>
+            <label><input type="radio" name="q45" value="D" /> D) uncertainty about God</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>46. Prayer is defined as...</p>
+          <div class="options">
+            <label><input type="radio" name="q46" value="A" /> A) communication with God</label>
+            <label><input type="radio" name="q46" value="B" /> B) a holy book</label>
+            <label><input type="radio" name="q46" value="C" /> C) a type of festival</label>
+            <label><input type="radio" name="q46" value="D" /> D) a prophet</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>47. Sacred texts are...</p>
+          <div class="options">
+            <label><input type="radio" name="q47" value="A" /> A) the holy writings of a religion</label>
+            <label><input type="radio" name="q47" value="B" /> B) places of worship</label>
+            <label><input type="radio" name="q47" value="C" /> C) the inner self only</label>
+            <label><input type="radio" name="q47" value="D" /> D) religious festivals</label>
+          </div>
+        </div>
+        <div class="question-box">
+          <p>48. Abrahamic faiths are the three religions that trace their origins to...</p>
+          <div class="options">
+            <label><input type="radio" name="q48" value="A" /> A) the prophet Abraham</label>
+            <label><input type="radio" name="q48" value="B" /> B) Guru Nanak</label>
+            <label><input type="radio" name="q48" value="C" /> C) Siddhartha Gautama</label>
+            <label><input type="radio" name="q48" value="D" /> D) Brahman</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <h2>Section B: Fill in the Blanks (24)</h2>
+      </div>
+      <div class="question-grid" id="blank-section">
+        <div class="question-box">
+          <p>49. Dharmic religions began in ______.</p>
+          <input type="text" name="q49" />
+        </div>
+        <div class="question-box">
+          <p>50. Dharma means living in the ______ way.</p>
+          <input type="text" name="q50" />
+        </div>
+        <div class="question-box">
+          <p>51. Karma means your actions have ______.</p>
+          <input type="text" name="q51" />
+        </div>
+        <div class="question-box">
+          <p>52. Samsara is the cycle of birth, ______ and rebirth.</p>
+          <input type="text" name="q52" />
+        </div>
+        <div class="question-box">
+          <p>53. Moksha or nirvana is freedom from this ______.</p>
+          <input type="text" name="q53" />
+        </div>
+        <div class="question-box">
+          <p>54. Abrahamic religions trace their history back to prophet ______.</p>
+          <input type="text" name="q54" />
+        </div>
+        <div class="question-box">
+          <p>55. The Abrahamic religions began in the ______ East.</p>
+          <input type="text" name="q55" />
+        </div>
+        <div class="question-box">
+          <p>56. The holy book of Judaism is the ______.</p>
+          <input type="text" name="q56" />
+        </div>
+        <div class="question-box">
+          <p>57. The Christian holy book is the ______.</p>
+          <input type="text" name="q57" />
+        </div>
+        <div class="question-box">
+          <p>58. The Muslim holy book is the ______.</p>
+          <input type="text" name="q58" />
+        </div>
+        <div class="question-box">
+          <p>59. Atheism is the belief that there is no ______ or gods.</p>
+          <input type="text" name="q59" />
+        </div>
+        <div class="question-box">
+          <p>60. Humanism focuses on people, reason, and ______.</p>
+          <input type="text" name="q60" />
+        </div>
+        <div class="question-box">
+          <p>61. Humanists believe this life is the only ______.</p>
+          <input type="text" name="q61" />
+        </div>
+        <div class="question-box">
+          <p>62. Humanists do not believe in God, heaven, or ______.</p>
+          <input type="text" name="q62" />
+        </div>
+        <div class="question-box">
+          <p>63. Beliefs can lead people to do ______ work.</p>
+          <input type="text" name="q63" />
+        </div>
+        <div class="question-box">
+          <p>64. Belief that life is sacred means all life should be treated with ______.</p>
+          <input type="text" name="q64" />
+        </div>
+        <div class="question-box">
+          <p>65. Many believers think there is a spirit or a ______.</p>
+          <input type="text" name="q65" />
+        </div>
+        <div class="question-box">
+          <p>66. Hinduism started in India and teaches about one supreme God, ______.</p>
+          <input type="text" name="q66" />
+        </div>
+        <div class="question-box">
+          <p>67. Buddhism was founded by Siddhartha ______.</p>
+          <input type="text" name="q67" />
+        </div>
+        <div class="question-box">
+          <p>68. Islam began in Arabia when Muhammad received God's message in the ______.</p>
+          <input type="text" name="q68" />
+        </div>
+        <div class="question-box">
+          <p>69. Sikhism was founded by ______ Nanak.</p>
+          <input type="text" name="q69" />
+        </div>
+        <div class="question-box">
+          <p>70. The “Happy Human” is the symbol of ______.</p>
+          <input type="text" name="q70" />
+        </div>
+        <div class="question-box">
+          <p>71. Monotheism means belief in ______ God.</p>
+          <input type="text" name="q71" />
+        </div>
+        <div class="question-box">
+          <p>72. A sacred text is a holy ______ of a religion.</p>
+          <input type="text" name="q72" />
+        </div>
+      </div>
+
+      <div class="section-header">
+        <h2>Section C: Open-Ended Questions (12)</h2>
+      </div>
+      <div class="question-grid" id="open-section">
+        <div class="question-box">
+          <p>73. Describe the key ideas shared by Dharmic religions.</p>
+          <textarea name="q73"></textarea>
+        </div>
+        <div class="question-box">
+          <p>74. Explain two ways beliefs can affect actions or daily life.</p>
+          <textarea name="q74"></textarea>
+        </div>
+        <div class="question-box">
+          <p>75. Compare what the text says about atheism and humanism.</p>
+          <textarea name="q75"></textarea>
+        </div>
+        <div class="question-box">
+          <p>76. Describe how Abrahamic religions are linked and one thing they share.</p>
+          <textarea name="q76"></textarea>
+        </div>
+        <div class="question-box">
+          <p>77. Explain what belief in the meaning of life helps religious people with.</p>
+          <textarea name="q77"></textarea>
+        </div>
+        <div class="question-box">
+          <p>78. Describe what “sanctity of life” means in the text.</p>
+          <textarea name="q78"></textarea>
+        </div>
+        <div class="question-box">
+          <p>79. Describe the timeline point for Christianity.</p>
+          <textarea name="q79"></textarea>
+        </div>
+        <div class="question-box">
+          <p>80. Explain what humanist ceremonies are used for and why.</p>
+          <textarea name="q80"></textarea>
+        </div>
+        <div class="question-box">
+          <p>81. Describe the definition of “religious education” from the vocabulary list.</p>
+          <textarea name="q81"></textarea>
+        </div>
+        <div class="question-box">
+          <p>82. Explain what “community” means in the vocabulary list.</p>
+          <textarea name="q82"></textarea>
+        </div>
+        <div class="question-box">
+          <p>83. Describe what “revelation” means in the Abrahamic vocabulary.</p>
+          <textarea name="q83"></textarea>
+        </div>
+        <div class="question-box">
+          <p>84. Explain what “pilgrimage” means in the Abrahamic vocabulary.</p>
+          <textarea name="q84"></textarea>
+        </div>
+      </div>
+
+      <div class="finish-section">
+        <button type="button" id="finish-button">Finish Test</button>
+        <div id="completion-message"></div>
+        <div class="results-panel" id="results-panel"></div>
+      </div>
+
+      <div class="teacher-tools" id="teacher-tools">
+        <details>
+          <summary>Teacher Tools</summary>
+          <div>
+            <h3>Answer Key</h3>
+            <p><strong>MCQ Answers</strong></p>
+            <ul class="answer-list">
+              <li>Q1 A</li><li>Q2 B</li><li>Q3 A</li><li>Q4 A</li><li>Q5 A</li><li>Q6 A</li>
+              <li>Q7 A</li><li>Q8 B</li><li>Q9 A</li><li>Q10 A</li><li>Q11 A</li><li>Q12 C</li>
+              <li>Q13 A</li><li>Q14 A</li><li>Q15 A</li><li>Q16 A</li><li>Q17 A</li><li>Q18 A</li>
+              <li>Q19 A</li><li>Q20 A</li><li>Q21 A</li><li>Q22 A</li><li>Q23 A</li><li>Q24 A</li>
+              <li>Q25 A</li><li>Q26 A</li><li>Q27 A</li><li>Q28 A</li><li>Q29 A</li><li>Q30 A</li>
+              <li>Q31 A</li><li>Q32 A</li><li>Q33 A</li><li>Q34 A</li><li>Q35 A</li><li>Q36 A</li>
+              <li>Q37 A</li><li>Q38 A</li><li>Q39 A</li><li>Q40 A</li><li>Q41 A</li><li>Q42 A</li>
+              <li>Q43 A</li><li>Q44 A</li><li>Q45 A</li><li>Q46 A</li><li>Q47 A</li><li>Q48 A</li>
+            </ul>
+            <p><strong>Fill in the Blanks</strong></p>
+            <ul class="answer-list">
+              <li>Q49 India</li>
+              <li>Q50 right</li>
+              <li>Q51 consequences</li>
+              <li>Q52 death</li>
+              <li>Q53 cycle</li>
+              <li>Q54 Abraham</li>
+              <li>Q55 Middle</li>
+              <li>Q56 Torah</li>
+              <li>Q57 Bible</li>
+              <li>Q58 Qur'an</li>
+              <li>Q59 God</li>
+              <li>Q60 compassion</li>
+              <li>Q61 one</li>
+              <li>Q62 hell</li>
+              <li>Q63 charity</li>
+              <li>Q64 respect</li>
+              <li>Q65 soul</li>
+              <li>Q66 Brahman</li>
+              <li>Q67 Gautama</li>
+              <li>Q68 Qur'an</li>
+              <li>Q69 Guru</li>
+              <li>Q70 Humanism</li>
+              <li>Q71 one</li>
+              <li>Q72 writings</li>
+            </ul>
+
+            <h3>Mark Scheme (Open-Ended)</h3>
+            <div class="mark-scheme">
+              <p><strong>Q73</strong></p>
+              <ul>
+                <li>Mentions dharma as living in the right way.</li>
+                <li>Mentions karma as actions having consequences.</li>
+                <li>Mentions samsara cycle of birth, death, rebirth.</li>
+                <li>Mentions moksha or nirvana as freedom from the cycle.</li>
+                <li>Includes practices like meditation or prayer.</li>
+              </ul>
+              <p><strong>Q74</strong></p>
+              <ul>
+                <li>Beliefs can lead to standing up for human rights.</li>
+                <li>Beliefs can lead to charity or helping the poor.</li>
+                <li>Daily life rules about what to wear or eat.</li>
+                <li>Daily life rules about worship/prayer or festivals.</li>
+              </ul>
+              <p><strong>Q75</strong></p>
+              <ul>
+                <li>Atheism: belief there is no God or gods.</li>
+                <li>Atheists use science, reason, human experience.</li>
+                <li>Humanism: non-religious worldview focusing on people, reason, compassion.</li>
+                <li>Humanists believe this life is the only one and reject God/heaven/hell.</li>
+              </ul>
+              <p><strong>Q76</strong></p>
+              <ul>
+                <li>Trace history back to prophet Abraham.</li>
+                <li>Judaism, Christianity, and Islam began in the Middle East.</li>
+                <li>Share belief in one God (monotheism).</li>
+                <li>Share holy books and moral rules.</li>
+              </ul>
+              <p><strong>Q77</strong></p>
+              <ul>
+                <li>Helps answer big questions like why we are here.</li>
+                <li>Helps with questions about suffering.</li>
+                <li>Gives a sense of purpose or guidance in life.</li>
+                <li>Links to ideas of afterlife or rebirth.</li>
+              </ul>
+              <p><strong>Q78</strong></p>
+              <ul>
+                <li>Life is sacred and should be treated with respect.</li>
+                <li>Includes respect for human and animal life.</li>
+                <li>Belief in an inner self, spirit or soul.</li>
+              </ul>
+              <p><strong>Q79</strong></p>
+              <ul>
+                <li>Christianity grew from Judaism.</li>
+                <li>It began in the 1st century CE.</li>
+                <li>Followers believe Jesus is God's son and a Saviour.</li>
+              </ul>
+              <p><strong>Q80</strong></p>
+              <ul>
+                <li>Humanist ceremonies are for births, weddings, funerals.</li>
+                <li>They replace religious ceremonies.</li>
+                <li>They fit with humanist values and focus on people.</li>
+              </ul>
+              <p><strong>Q81</strong></p>
+              <ul>
+                <li>Religious Education is the study of different religions.</li>
+                <li>Includes beliefs and practices.</li>
+                <li>Looks at how religions influence people’s lives.</li>
+              </ul>
+              <p><strong>Q82</strong></p>
+              <ul>
+                <li>Community means people of different cultures and faiths.</li>
+                <li>They live respectfully together in one community.</li>
+              </ul>
+              <p><strong>Q83</strong></p>
+              <ul>
+                <li>Revelation is when God reveals or shows His message.</li>
+                <li>Can be through scripture or prophets.</li>
+              </ul>
+              <p><strong>Q84</strong></p>
+              <ul>
+                <li>Pilgrimage is a journey for religious reasons.</li>
+                <li>It can include visiting a holy place.</li>
+              </ul>
+            </div>
+
+            <h3>Auto-Marking Version (Info Only)</h3>
+            <p>
+              MCQ and fill-in-the-blank questions can be auto-marked by matching student answers
+              to the answer key. Open-ended questions should be assessed by a teacher using the
+              mark scheme because students may use different wording to explain their ideas.
+            </p>
+          </div>
+        </details>
+
+        <div class="prompt-box">
+          <h3>Next Test Generator Prompt</h3>
+          <textarea id="next-prompt">Create a new Year 7 RE test using the same HTML structure and logic.
+Use [NEW_SOURCE_FILE.md] as the ONLY content source.
+Generate:
+- 48 MCQs
+- 24 Fill in the blanks
+- 12 Open-ended questions
+Same design, same rules.</textarea>
+          <div class="prompt-actions">
+            <button type="button" id="copy-prompt">Copy Prompt</button>
+            <span id="copy-status"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ai-pack" id="ai-pack-panel">
+        <h3>AI Review Pack</h3>
+        <textarea id="ai-pack-text" aria-label="AI Review Pack"></textarea>
+        <div class="prompt-actions">
+          <button type="button" id="copy-ai-pack">Copy AI Pack</button>
+          <button type="button" id="download-ai-pack">Download JSON</button>
+          <span id="ai-pack-status"></span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const finishButton = document.getElementById("finish-button");
+      const completionMessage = document.getElementById("completion-message");
+      const teacherTools = document.getElementById("teacher-tools");
+      const resultsPanel = document.getElementById("results-panel");
+      const aiPackPanel = document.getElementById("ai-pack-panel");
+      const aiPackText = document.getElementById("ai-pack-text");
+      const copyAiPackButton = document.getElementById("copy-ai-pack");
+      const downloadAiPackButton = document.getElementById("download-ai-pack");
+      const aiPackStatus = document.getElementById("ai-pack-status");
+      const copyPromptButton = document.getElementById("copy-prompt");
+      const copyStatus = document.getElementById("copy-status");
+
+      const mcqAnswerKey = {
+        q1: "A",
+        q2: "B",
+        q3: "A",
+        q4: "A",
+        q5: "A",
+        q6: "A",
+        q7: "A",
+        q8: "B",
+        q9: "A",
+        q10: "A",
+        q11: "A",
+        q12: "C",
+        q13: "A",
+        q14: "A",
+        q15: "A",
+        q16: "A",
+        q17: "A",
+        q18: "A",
+        q19: "A",
+        q20: "A",
+        q21: "A",
+        q22: "A",
+        q23: "A",
+        q24: "A",
+        q25: "A",
+        q26: "A",
+        q27: "A",
+        q28: "A",
+        q29: "A",
+        q30: "A",
+        q31: "A",
+        q32: "A",
+        q33: "A",
+        q34: "A",
+        q35: "A",
+        q36: "A",
+        q37: "A",
+        q38: "A",
+        q39: "A",
+        q40: "A",
+        q41: "A",
+        q42: "A",
+        q43: "A",
+        q44: "A",
+        q45: "A",
+        q46: "A",
+        q47: "A",
+        q48: "A"
+      };
+
+      const blankAnswerKey = {
+        q49: "India",
+        q50: "right",
+        q51: "consequences",
+        q52: "death",
+        q53: "cycle",
+        q54: "Abraham",
+        q55: "Middle",
+        q56: "Torah",
+        q57: "Bible",
+        q58: "Qur'an",
+        q59: "God",
+        q60: "compassion",
+        q61: "one",
+        q62: "hell",
+        q63: "charity",
+        q64: "respect",
+        q65: "soul",
+        q66: "Brahman",
+        q67: "Gautama",
+        q68: "Qur'an",
+        q69: "Guru",
+        q70: "Humanism",
+        q71: "one",
+        q72: "writings"
+      };
+
+      const topicKeywords = [
+        { tag: "dharmic", words: ["dharmic", "dharma", "karma", "samsara", "moksha", "nirvana"] },
+        { tag: "abrahamic", words: ["abrahamic", "abraham", "judaism", "christianity", "islam"] },
+        { tag: "humanism", words: ["humanism", "humanist", "happy human"] },
+        { tag: "atheism", words: ["atheism", "atheist"] },
+        { tag: "timeline", words: ["timeline", "bce", "ce", "began", "founded"] },
+        { tag: "vocabulary", words: ["vocabulary", "definition", "means", "defined"] }
+      ];
+
+      function normalizeAnswer(value) {
+        return value.trim().toLowerCase();
+      }
+
+      function getQuestionBox(name) {
+        const field = document.querySelector(`[name="${name}"]`);
+        return field ? field.closest(".question-box") : null;
+      }
+
+      function getQuestionText(name) {
+        const box = getQuestionBox(name);
+        if (!box) {
+          return "";
+        }
+        const question = box.querySelector("p");
+        return question ? question.textContent.trim() : "";
+      }
+
+      function getTopicTag(text) {
+        const lower = text.toLowerCase();
+        const match = topicKeywords.find((topic) => topic.words.some((word) => lower.includes(word)));
+        return match ? match.tag : "general";
+      }
+
+      function shuffleSection(sectionId) {
+        const container = document.getElementById(sectionId);
+        const boxes = Array.from(container.querySelectorAll(".question-box"));
+        for (let i = boxes.length - 1; i > 0; i -= 1) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [boxes[i], boxes[j]] = [boxes[j], boxes[i]];
+        }
+        for (let i = 1; i < boxes.length; i += 1) {
+          const prevTopic = getTopicTag(boxes[i - 1].querySelector("p").textContent);
+          const currentTopic = getTopicTag(boxes[i].querySelector("p").textContent);
+          if (prevTopic === currentTopic) {
+            const swapIndex = boxes.findIndex((box, idx) => {
+              if (idx <= i) return false;
+              return getTopicTag(box.querySelector("p").textContent) !== prevTopic;
+            });
+            if (swapIndex !== -1) {
+              [boxes[i], boxes[swapIndex]] = [boxes[swapIndex], boxes[i]];
+            }
+          }
+        }
+        boxes.forEach((box) => container.appendChild(box));
+      }
+
+      function getSelectedOption(name) {
+        const selected = document.querySelector(`input[name="${name}"]:checked`);
+        return selected ? selected.value : "";
+      }
+
+      function getOptionText(name, value) {
+        const option = document.querySelector(`input[name="${name}"][value="${value}"]`);
+        if (!option) {
+          return "";
+        }
+        const label = option.closest("label");
+        if (!label) {
+          return "";
+        }
+        return label.textContent.replace(/^[A-D]\)\s*/, "").trim();
+      }
+
+      function buildSectionResults() {
+        let mcqScore = 0;
+        let blankScore = 0;
+        const mcqIncorrect = [];
+        const blankIncorrect = [];
+
+        Object.keys(mcqAnswerKey).forEach((key) => {
+          const selected = getSelectedOption(key);
+          if (selected === mcqAnswerKey[key]) {
+            mcqScore += 1;
+          } else {
+            const correctText = getOptionText(key, mcqAnswerKey[key]);
+            mcqIncorrect.push({
+              id: key,
+              correct: mcqAnswerKey[key],
+              correctText,
+              explanation: correctText || "Review this concept in the notes / vocabulary list."
+            });
+          }
+        });
+
+        Object.keys(blankAnswerKey).forEach((key) => {
+          const input = document.querySelector(`[name="${key}"]`);
+          const value = input ? normalizeAnswer(input.value) : "";
+          if (value && value === normalizeAnswer(blankAnswerKey[key])) {
+            blankScore += 1;
+          } else {
+            blankIncorrect.push({
+              id: key,
+              correct: blankAnswerKey[key],
+              explanation: blankAnswerKey[key] || "Review this concept in the notes / vocabulary list."
+            });
+          }
+        });
+
+        return { mcqScore, blankScore, mcqIncorrect, blankIncorrect };
+      }
+
+      function renderResults({ mcqScore, blankScore, mcqIncorrect, blankIncorrect }) {
+        const total = mcqScore + blankScore;
+        const mcqList = mcqIncorrect
+          .map(
+            (item) =>
+              `<li>${item.id.toUpperCase()}: Correct ${item.correct} (${item.correctText}) — ${item.explanation}</li>`
+          )
+          .join("");
+        const blankList = blankIncorrect
+          .map(
+            (item) =>
+              `<li>${item.id.toUpperCase()}: Correct "${item.correct}" — ${item.explanation}</li>`
+          )
+          .join("");
+
+        resultsPanel.innerHTML = `
+          <p><strong>Section A:</strong> ${mcqScore}/48</p>
+          <p><strong>Section B:</strong> ${blankScore}/24</p>
+          <p><strong>Auto-total:</strong> ${total}/72</p>
+          <p><strong>Section C:</strong> Teacher-assessed</p>
+          <div>
+            <strong>Section A Incorrect Answers</strong>
+            <ul>${mcqList || "<li>None</li>"}</ul>
+          </div>
+          <div>
+            <strong>Section B Incorrect Answers</strong>
+            <ul>${blankList || "<li>None</li>"}</ul>
+          </div>
+        `;
+      }
+
+      function buildAiPack(results) {
+        const entries = [];
+        const sections = [
+          { id: "A", start: 1, end: 48 },
+          { id: "B", start: 49, end: 72 },
+          { id: "C", start: 73, end: 84 }
+        ];
+
+        sections.forEach((section) => {
+          for (let i = section.start; i <= section.end; i += 1) {
+            const key = `q${i}`;
+            const questionText = getQuestionText(key);
+            if (section.id === "A") {
+              const studentAnswer = getSelectedOption(key) || "No answer";
+              const correctLetter = mcqAnswerKey[key];
+              const correctText = getOptionText(key, correctLetter);
+              entries.push({
+                section: section.id,
+                id: key,
+                question: questionText,
+                studentAnswer,
+                correctAnswer: `${correctLetter} (${correctText})`,
+                correct: studentAnswer === correctLetter
+              });
+            } else if (section.id === "B") {
+              const input = document.querySelector(`[name="${key}"]`);
+              const studentText = input ? input.value.trim() : "";
+              const correctText = blankAnswerKey[key];
+              entries.push({
+                section: section.id,
+                id: key,
+                question: questionText,
+                studentAnswer: studentText || "No answer",
+                correctAnswer: correctText,
+                correct: normalizeAnswer(studentText || "") === normalizeAnswer(correctText)
+              });
+            } else {
+              const input = document.querySelector(`[name="${key}"]`);
+              const studentText = input ? input.value.trim() : "";
+              entries.push({
+                section: section.id,
+                id: key,
+                question: questionText,
+                studentAnswer: studentText || "No answer"
+              });
+            }
+          }
+        });
+
+        const promptLines = [
+          "Year 7 Religious Education Test",
+          "",
+          "You are an AI tutor. Use the data below to:",
+          "- Summarise performance by section",
+          "- Explain each mistake with a short, Year-7-friendly explanation",
+          "- Provide a personalised improvement plan for the next 7 days plus concise revision notes",
+          "- Provide WWW / EBI feedback",
+          "- Provide model answers for Section C and tips to improve wording",
+          "",
+          "Section A, B, and C details:"
+        ];
+
+        entries.forEach((entry) => {
+          promptLines.push(`${entry.id} (${entry.section})`);
+          promptLines.push(`Question: ${entry.question}`);
+          promptLines.push(`Student answer: ${entry.studentAnswer}`);
+          if (entry.section !== "C") {
+            promptLines.push(`Correct answer: ${entry.correctAnswer}`);
+            promptLines.push(`Correct: ${entry.correct ? "Yes" : "No"}`);
+          } else {
+            promptLines.push("Correct: Teacher-assessed");
+          }
+          promptLines.push("");
+        });
+
+        const jsonData = {
+          title: "Year 7 Religious Education Test",
+          autoScores: {
+            sectionA: results.mcqScore,
+            sectionB: results.blankScore,
+            total: results.mcqScore + results.blankScore
+          },
+          entries
+        };
+
+        return { prompt: promptLines.join("\n"), jsonData };
+      }
+
+      function downloadJson(data) {
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "re-test-ai-pack.json";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+      }
+
+      finishButton.addEventListener("click", () => {
+        document.querySelectorAll(".question-grid input, .question-grid textarea").forEach((input) => {
+          input.disabled = true;
+        });
+        finishButton.disabled = true;
+        completionMessage.textContent = "Test completed. Well done!";
+        teacherTools.style.display = "block";
+
+        const results = buildSectionResults();
+        renderResults(results);
+
+        const aiPack = buildAiPack(results);
+        aiPackText.value = aiPack.prompt;
+        aiPackPanel.style.display = "block";
+        aiPackPanel.dataset.json = JSON.stringify(aiPack.jsonData);
+      });
+
+      copyAiPackButton.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(aiPackText.value);
+          aiPackStatus.textContent = "AI pack copied.";
+        } catch (error) {
+          aiPackStatus.textContent = "Unable to copy. Please copy manually.";
+        }
+      });
+
+      downloadAiPackButton.addEventListener("click", () => {
+        const jsonData = aiPackPanel.dataset.json ? JSON.parse(aiPackPanel.dataset.json) : null;
+        if (jsonData) {
+          downloadJson(jsonData);
+        }
+      });
+
+      copyPromptButton.addEventListener("click", async () => {
+        const promptText = document.getElementById("next-prompt").value;
+        try {
+          await navigator.clipboard.writeText(promptText);
+          copyStatus.textContent = "Prompt copied.";
+        } catch (error) {
+          copyStatus.textContent = "Unable to copy. Please copy manually.";
+        }
+      });
+
+      shuffleSection("mcq-section");
+      shuffleSection("blank-section");
+      shuffleSection("open-section");
+    </script>
+  </body>
+</html>
