@@ -95,7 +95,7 @@ export const createAuthActions: AuthCreator = (set, get) => ({
   checkSession: () => {
     const { token, expiresAt } = get();
     if (!token || !expiresAt) {
-      set({ isAuthenticated: false });
+      set({ token: null, expiresAt: null, isAuthenticated: false });
       return false;
     }
 
@@ -104,18 +104,12 @@ export const createAuthActions: AuthCreator = (set, get) => ({
 
     if (!isValid) {
       persistSession(null);
-      set({
-        isAuthenticated: false,
-        token: null,
-        expiresAt: null,
-        user: null,
-        onboardingCompleted: false,
-      });
-    } else {
-      set({ isAuthenticated: true });
+      set({ token: null, expiresAt: null, isAuthenticated: false });
+      return false;
     }
 
-    return isValid;
+    set({ isAuthenticated: true });
+    return true;
   },
 });
 

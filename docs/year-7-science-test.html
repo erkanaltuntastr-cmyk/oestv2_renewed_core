@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Year 7 Science Test</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --heading-blue: #2a5599;
+        --box-bg: #f9f9f9;
+        --button-green: #4caf50;
+        --text-dark: #1f2937;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 24px;
+        font-family: "Open Sans", sans-serif;
+        color: var(--text-dark);
+        background: #ffffff;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1,
+      h2 {
+        color: var(--heading-blue);
+        margin-bottom: 12px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 24px;
+      }
+
+      .question-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        margin-bottom: 32px;
+      }
+
+      .question-box {
+        background: var(--box-bg);
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 16px;
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+      }
+
+      .question-box p {
+        margin: 0 0 12px;
+        font-weight: 600;
+      }
+
+      .question-image {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 10px 0 12px;
+        border-radius: 8px;
+      }
+
+      .options label {
+        display: block;
+        padding: 6px 8px;
+        border-radius: 6px;
+        transition: background 0.2s ease, transform 0.2s ease;
+        cursor: pointer;
+      }
+
+      .options label:hover {
+        background: #e7effb;
+        transform: translateX(2px);
+      }
+
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 8px 10px;
+        border: 1px solid #cbd5f5;
+        border-radius: 6px;
+        font-family: inherit;
+      }
+
+      textarea {
+        min-height: 90px;
+        resize: vertical;
+      }
+
+      .no-print {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      button {
+        background: var(--button-green);
+        color: #ffffff;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+
+      button:hover {
+        background: #43a047;
+      }
+
+      #results {
+        font-weight: 600;
+      }
+
+      @media print {
+        body {
+          padding: 0;
+        }
+
+        .question-box {
+          box-shadow: none;
+        }
+
+        .no-print {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Year 7 Science Test</h1>
+
+      <h2>Multiple Choice Questions (48)</h2>
+      <div class="question-grid">
+        <div class="question-box">
+          <p>1. Which organelle releases energy in cells?</p>
+          <img src="images/hazard-symbols.jpg" class="question-image" alt="Lab safety hazard symbols" />
+          <div class="options">
+            <label><input type="radio" name="q1" value="a" /> a) Chloroplast</label>
+            <label><input type="radio" name="q1" value="b" /> b) Mitochondria</label>
+            <label><input type="radio" name="q1" value="c" /> c) Nucleus</label>
+            <label><input type="radio" name="q1" value="d" /> d) Vacuole</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>2. In which organelle does photosynthesis occur?</p>
+          <div class="options">
+            <label><input type="radio" name="q2" value="a" /> a) Mitochondria</label>
+            <label><input type="radio" name="q2" value="b" /> b) Chloroplast</label>
+            <label><input type="radio" name="q2" value="c" /> c) Cell wall</label>
+            <label><input type="radio" name="q2" value="d" /> d) Cytoplasm</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>3. Mitochondria are found in?</p>
+          <div class="options">
+            <label><input type="radio" name="q3" value="a" /> a) Plant cells only</label>
+            <label><input type="radio" name="q3" value="b" /> b) Animal cells only</label>
+            <label><input type="radio" name="q3" value="c" /> c) Both plant and animal cells</label>
+            <label><input type="radio" name="q3" value="d" /> d) Neither</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>4. Chloroplasts contain which pigment?</p>
+          <div class="options">
+            <label><input type="radio" name="q4" value="a" /> a) Hemoglobin</label>
+            <label><input type="radio" name="q4" value="b" /> b) Melanin</label>
+            <label><input type="radio" name="q4" value="c" /> c) Carotene</label>
+            <label><input type="radio" name="q4" value="d" /> d) Chlorophyll</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>5. What process in mitochondria releases energy?</p>
+          <div class="options">
+            <label><input type="radio" name="q5" value="a" /> a) Respiration</label>
+            <label><input type="radio" name="q5" value="b" /> b) Photosynthesis</label>
+            <label><input type="radio" name="q5" value="c" /> c) Diffusion</label>
+            <label><input type="radio" name="q5" value="d" /> d) Osmosis</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>6. Chloroplasts are absent in?</p>
+          <div class="options">
+            <label><input type="radio" name="q6" value="a" /> a) Leaf cells</label>
+            <label><input type="radio" name="q6" value="b" /> b) Animal cells</label>
+            <label><input type="radio" name="q6" value="c" /> c) Root hair cells</label>
+            <label><input type="radio" name="q6" value="d" /> d) Palisade cells</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>7. How does amoeba reproduce?</p>
+          <div class="options">
+            <label><input type="radio" name="q7" value="a" /> a) Binary fission</label>
+            <label><input type="radio" name="q7" value="b" /> b) Budding</label>
+            <label><input type="radio" name="q7" value="c" /> c) Spores</label>
+            <label><input type="radio" name="q7" value="d" /> d) Fragmentation</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>8. Binary fission results in how many daughter cells?</p>
+          <div class="options">
+            <label><input type="radio" name="q8" value="a" /> a) One</label>
+            <label><input type="radio" name="q8" value="b" /> b) Two</label>
+            <label><input type="radio" name="q8" value="c" /> c) Four</label>
+            <label><input type="radio" name="q8" value="d" /> d) Eight</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>9. Which unicellular organism uses binary fission?</p>
+          <div class="options">
+            <label><input type="radio" name="q9" value="a" /> a) Yeast</label>
+            <label><input type="radio" name="q9" value="b" /> b) Hydra</label>
+            <label><input type="radio" name="q9" value="c" /> c) Amoeba</label>
+            <label><input type="radio" name="q9" value="d" /> d) Planaria</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>10. Binary fission is a form of?</p>
+          <div class="options">
+            <label><input type="radio" name="q10" value="a" /> a) Sexual reproduction</label>
+            <label><input type="radio" name="q10" value="b" /> b) Asexual reproduction</label>
+            <label><input type="radio" name="q10" value="c" /> c) Regeneration</label>
+            <label><input type="radio" name="q10" value="d" /> d) Metamorphosis</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>11. Amoeba is a type of?</p>
+          <div class="options">
+            <label><input type="radio" name="q11" value="a" /> a) Unicellular organism</label>
+            <label><input type="radio" name="q11" value="b" /> b) Multicellular organism</label>
+            <label><input type="radio" name="q11" value="c" /> c) Virus</label>
+            <label><input type="radio" name="q11" value="d" /> d) Bacterium</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>12. After binary fission, daughter cells are?</p>
+          <div class="options">
+            <label><input type="radio" name="q12" value="a" /> a) Different from parent</label>
+            <label><input type="radio" name="q12" value="b" /> b) Larger than parent</label>
+            <label><input type="radio" name="q12" value="c" /> c) Smaller than parent</label>
+            <label><input type="radio" name="q12" value="d" /> d) Identical to parent</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>13. Which lens do you look through in a microscope?</p>
+          <img src="images/microscope-labelled.png" class="question-image" alt="Microscope parts diagram" />
+          <div class="options">
+            <label><input type="radio" name="q13" value="a" /> a) Eyepiece</label>
+            <label><input type="radio" name="q13" value="b" /> b) Objective lens</label>
+            <label><input type="radio" name="q13" value="c" /> c) Condenser</label>
+            <label><input type="radio" name="q13" value="d" /> d) Stage</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>14. The objective lens is located closest to?</p>
+          <img src="images/microscope-labelled.png" class="question-image" alt="Microscope parts diagram" />
+          <div class="options">
+            <label><input type="radio" name="q14" value="a" /> a) Your eye</label>
+            <label><input type="radio" name="q14" value="b" /> b) The specimen</label>
+            <label><input type="radio" name="q14" value="c" /> c) The lamp</label>
+            <label><input type="radio" name="q14" value="d" /> d) The coarse focus knob</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>15. Eyepiece lens typically magnifies by?</p>
+          <div class="options">
+            <label><input type="radio" name="q15" value="a" /> a) 4x</label>
+            <label><input type="radio" name="q15" value="b" /> b) 10x</label>
+            <label><input type="radio" name="q15" value="c" /> c) 40x</label>
+            <label><input type="radio" name="q15" value="d" /> d) 100x</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>16. Objective lenses usually provide magnifications of?</p>
+          <div class="options">
+            <label><input type="radio" name="q16" value="a" /> a) 4x, 10x, 40x</label>
+            <label><input type="radio" name="q16" value="b" /> b) 2x only</label>
+            <label><input type="radio" name="q16" value="c" /> c) 100x only</label>
+            <label><input type="radio" name="q16" value="d" /> d) Variable but not fixed</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>17. Total magnification is calculated by multiplying eyepiece by?</p>
+          <img src="images/microscope-labelled.png" class="question-image" alt="Microscope parts diagram" />
+          <div class="options">
+            <label><input type="radio" name="q17" value="a" /> a) Objective lens</label>
+            <label><input type="radio" name="q17" value="b" /> b) Stage</label>
+            <label><input type="radio" name="q17" value="c" /> c) Lamp</label>
+            <label><input type="radio" name="q17" value="d" /> d) Diaphragm</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>18. The eyepiece is also called?</p>
+          <div class="options">
+            <label><input type="radio" name="q18" value="a" /> a) Condenser lens</label>
+            <label><input type="radio" name="q18" value="b" /> b) Ocular lens</label>
+            <label><input type="radio" name="q18" value="c" /> c) Nosepiece</label>
+            <label><input type="radio" name="q18" value="d" /> d) Fine focus knob</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>19. Objective lenses are mounted on?</p>
+          <div class="options">
+            <label><input type="radio" name="q19" value="a" /> a) Arm</label>
+            <label><input type="radio" name="q19" value="b" /> b) Base</label>
+            <label><input type="radio" name="q19" value="c" /> c) Revolving nosepiece</label>
+            <label><input type="radio" name="q19" value="d" /> d) Clip</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>20. To switch magnification, you rotate the?</p>
+          <img src="images/microscope-labelled.png" class="question-image" alt="Microscope parts diagram" />
+          <div class="options">
+            <label><input type="radio" name="q20" value="a" /> a) Eyepiece</label>
+            <label><input type="radio" name="q20" value="b" /> b) Stage</label>
+            <label><input type="radio" name="q20" value="c" /> c) Light source</label>
+            <label><input type="radio" name="q20" value="d" /> d) Nosepiece</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>21. Which part moves the stage up and down quickly?</p>
+          <img src="images/microscope-labelled.png" class="question-image" alt="Microscope parts diagram" />
+          <div class="options">
+            <label><input type="radio" name="q21" value="a" /> a) Coarse focus knob</label>
+            <label><input type="radio" name="q21" value="b" /> b) Fine focus knob</label>
+            <label><input type="radio" name="q21" value="c" /> c) Lamp</label>
+            <label><input type="radio" name="q21" value="d" /> d) Condenser</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>22. Which part adjusts the clarity of the image slowly?</p>
+          <div class="options">
+            <label><input type="radio" name="q22" value="a" /> a) Coarse focus knob</label>
+            <label><input type="radio" name="q22" value="b" /> b) Fine focus knob</label>
+            <label><input type="radio" name="q22" value="c" /> c) Stage clips</label>
+            <label><input type="radio" name="q22" value="d" /> d) Mirror</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>23. The stage of a microscope is used to?</p>
+          <div class="options">
+            <label><input type="radio" name="q23" value="a" /> a) Hold the slide</label>
+            <label><input type="radio" name="q23" value="b" /> b) Produce light</label>
+            <label><input type="radio" name="q23" value="c" /> c) Magnify the image</label>
+            <label><input type="radio" name="q23" value="d" /> d) Adjust focus</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>24. Which part controls the amount of light passing through the specimen?</p>
+          <img src="images/microscope-labelled.png" class="question-image" alt="Microscope parts diagram" />
+          <div class="options">
+            <label><input type="radio" name="q24" value="a" /> a) Diaphragm</label>
+            <label><input type="radio" name="q24" value="b" /> b) Eyepiece</label>
+            <label><input type="radio" name="q24" value="c" /> c) Objective lens</label>
+            <label><input type="radio" name="q24" value="d" /> d) Stage</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>25. Diffusion is faster at?</p>
+          <div class="options">
+            <label><input type="radio" name="q25" value="a" /> a) Higher temperatures</label>
+            <label><input type="radio" name="q25" value="b" /> b) Lower temperatures</label>
+            <label><input type="radio" name="q25" value="c" /> c) Room temperature</label>
+            <label><input type="radio" name="q25" value="d" /> d) Freezing point</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>26. Why does higher temperature increase diffusion?</p>
+          <div class="options">
+            <label><input type="radio" name="q26" value="a" /> a) Particles slow down</label>
+            <label><input type="radio" name="q26" value="b" /> b) Particles move faster</label>
+            <label><input type="radio" name="q26" value="c" /> c) Particles stop</label>
+            <label><input type="radio" name="q26" value="d" /> d) Particles condense</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>27. Diffusion occurs in which states?</p>
+          <img src="images/particle-states.jpg" class="question-image" alt="Particle spacing in solid, liquid, and gas" />
+          <div class="options">
+            <label><input type="radio" name="q27" value="a" /> a) Solids only</label>
+            <label><input type="radio" name="q27" value="b" /> b) Liquids only</label>
+            <label><input type="radio" name="q27" value="c" /> c) Liquids and gases</label>
+            <label><input type="radio" name="q27" value="d" /> d) Solids and gases</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>28. In gases, diffusion is?</p>
+          <div class="options">
+            <label><input type="radio" name="q28" value="a" /> a) Slow</label>
+            <label><input type="radio" name="q28" value="b" /> b) Non-existent</label>
+            <label><input type="radio" name="q28" value="c" /> c) Medium</label>
+            <label><input type="radio" name="q28" value="d" /> d) Fast</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>29. Particle size affects diffusion how?</p>
+          <div class="options">
+            <label><input type="radio" name="q29" value="a" /> a) Larger particles diffuse faster</label>
+            <label><input type="radio" name="q29" value="b" /> b) No effect</label>
+            <label><input type="radio" name="q29" value="c" /> c) Smaller particles diffuse slower</label>
+            <label><input type="radio" name="q29" value="d" /> d) Larger particles diffuse slower</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>30. At low temperature, diffusion is?</p>
+          <div class="options">
+            <label><input type="radio" name="q30" value="a" /> a) Fast</label>
+            <label><input type="radio" name="q30" value="b" /> b) Slow</label>
+            <label><input type="radio" name="q30" value="c" /> c) Stopped</label>
+            <label><input type="radio" name="q30" value="d" /> d) Reversed</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>31. Diffusion is the movement of particles from?</p>
+          <div class="options">
+            <label><input type="radio" name="q31" value="a" /> a) Low to high concentration</label>
+            <label><input type="radio" name="q31" value="b" /> b) Equal concentrations</label>
+            <label><input type="radio" name="q31" value="c" /> c) High to low concentration</label>
+            <label><input type="radio" name="q31" value="d" /> d) No movement</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>32. Temperature affects particle?</p>
+          <div class="options">
+            <label><input type="radio" name="q32" value="a" /> a) Size</label>
+            <label><input type="radio" name="q32" value="b" /> b) Number</label>
+            <label><input type="radio" name="q32" value="c" /> c) Color</label>
+            <label><input type="radio" name="q32" value="d" /> d) Speed</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>33. Pure substances show what on a heating graph?</p>
+          <img src="images/heating-curve.jpg" class="question-image" alt="Heating curve with melting point plateau" />
+          <div class="options">
+            <label><input type="radio" name="q33" value="a" /> a) Flat line at melting point</label>
+            <label><input type="radio" name="q33" value="b" /> b) Steep curve</label>
+            <label><input type="radio" name="q33" value="c" /> c) No change</label>
+            <label><input type="radio" name="q33" value="d" /> d) Zigzag</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>34. Mixtures on heating show?</p>
+          <div class="options">
+            <label><input type="radio" name="q34" value="a" /> a) Flat line</label>
+            <label><input type="radio" name="q34" value="b" /> b) No flat line</label>
+            <label><input type="radio" name="q34" value="c" /> c) Multiple flat lines</label>
+            <label><input type="radio" name="q34" value="d" /> d) Inverted curve</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>35. Melting point is the temperature where a substance?</p>
+          <div class="options">
+            <label><input type="radio" name="q35" value="a" /> a) Boils</label>
+            <label><input type="radio" name="q35" value="b" /> b) Freezes</label>
+            <label><input type="radio" name="q35" value="c" /> c) Melts</label>
+            <label><input type="radio" name="q35" value="d" /> d) Evaporates</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>36. Impurities affect melting point by?</p>
+          <div class="options">
+            <label><input type="radio" name="q36" value="a" /> a) Increasing it</label>
+            <label><input type="radio" name="q36" value="b" /> b) No effect</label>
+            <label><input type="radio" name="q36" value="c" /> c) Making it sharp</label>
+            <label><input type="radio" name="q36" value="d" /> d) Lowering and broadening it</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>37. A funnel is used for?</p>
+          <div class="options">
+            <label><input type="radio" name="q37" value="a" /> a) Filtering or pouring</label>
+            <label><input type="radio" name="q37" value="b" /> b) Measuring volume</label>
+            <label><input type="radio" name="q37" value="c" /> c) Heating</label>
+            <label><input type="radio" name="q37" value="d" /> d) Mixing</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>38. Measuring cylinder measures?</p>
+          <div class="options">
+            <label><input type="radio" name="q38" value="a" /> a) Mass</label>
+            <label><input type="radio" name="q38" value="b" /> b) Volume</label>
+            <label><input type="radio" name="q38" value="c" /> c) Temperature</label>
+            <label><input type="radio" name="q38" value="d" /> d) Length</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>39. Difference between funnel and cylinder?</p>
+          <div class="options">
+            <label><input type="radio" name="q39" value="a" /> a) Funnel pours, cylinder measures volume</label>
+            <label><input type="radio" name="q39" value="b" /> b) Both measure volume</label>
+            <label><input type="radio" name="q39" value="c" /> c) Funnel heats, cylinder cools</label>
+            <label><input type="radio" name="q39" value="d" /> d) Both filter</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>40. Which has graduations for measurement?</p>
+          <div class="options">
+            <label><input type="radio" name="q40" value="a" /> a) Funnel</label>
+            <label><input type="radio" name="q40" value="b" /> b) Beaker</label>
+            <label><input type="radio" name="q40" value="c" /> c) Test tube</label>
+            <label><input type="radio" name="q40" value="d" /> d) Measuring cylinder</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>41. The rubber tube on a Bunsen burner connects to?</p>
+          <img src="images/bunsen-burner-labelled.jpg" class="question-image" alt="Bunsen burner parts diagram" />
+          <div class="options">
+            <label><input type="radio" name="q41" value="a" /> a) Gas supply</label>
+            <label><input type="radio" name="q41" value="b" /> b) Air</label>
+            <label><input type="radio" name="q41" value="c" /> c) Water</label>
+            <label><input type="radio" name="q41" value="d" /> d) Electricity</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>42. The air hole controls?</p>
+          <img src="images/bunsen-burner-labelled.jpg" class="question-image" alt="Bunsen burner parts diagram" />
+          <div class="options">
+            <label><input type="radio" name="q42" value="a" /> a) Gas flow</label>
+            <label><input type="radio" name="q42" value="b" /> b) Air intake</label>
+            <label><input type="radio" name="q42" value="c" /> c) Flame height</label>
+            <label><input type="radio" name="q42" value="d" /> d) Color</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>43. Fuel for a Bunsen burner is?</p>
+          <img src="images/bunsen-burner-labelled.jpg" class="question-image" alt="Bunsen burner parts diagram" />
+          <div class="options">
+            <label><input type="radio" name="q43" value="a" /> a) Oxygen</label>
+            <label><input type="radio" name="q43" value="b" /> b) Methane</label>
+            <label><input type="radio" name="q43" value="c" /> c) Carbon dioxide</label>
+            <label><input type="radio" name="q43" value="d" /> d) Hydrogen</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>44. Closing the air hole produces?</p>
+          <img src="images/bunsen-burner-labelled.jpg" class="question-image" alt="Bunsen burner parts diagram" />
+          <div class="options">
+            <label><input type="radio" name="q44" value="a" /> a) Blue flame</label>
+            <label><input type="radio" name="q44" value="b" /> b) Yellow safety flame</label>
+            <label><input type="radio" name="q44" value="c" /> c) Green flame</label>
+            <label><input type="radio" name="q44" value="d" /> d) No flame</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>45. Which axis shows the dependent variable?</p>
+          <div class="options">
+            <label><input type="radio" name="q45" value="a" /> a) X-axis</label>
+            <label><input type="radio" name="q45" value="b" /> b) Y-axis</label>
+            <label><input type="radio" name="q45" value="c" /> c) Z-axis</label>
+            <label><input type="radio" name="q45" value="d" /> d) None</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>46. When plotting points, you should use?</p>
+          <div class="options">
+            <label><input type="radio" name="q46" value="a" /> a) Thick marker</label>
+            <label><input type="radio" name="q46" value="b" /> b) Sharp pencil</label>
+            <label><input type="radio" name="q46" value="c" /> c) Colored pen</label>
+            <label><input type="radio" name="q46" value="d" /> d) Highlighter</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>47. A graph must always have?</p>
+          <div class="options">
+            <label><input type="radio" name="q47" value="a" /> a) Title and labelled axes</label>
+            <label><input type="radio" name="q47" value="b" /> b) Random colors</label>
+            <label><input type="radio" name="q47" value="c" /> c) Pictures</label>
+            <label><input type="radio" name="q47" value="d" /> d) No labels</label>
+          </div>
+        </div>
+
+        <div class="question-box">
+          <p>48. The independent variable is plotted on?</p>
+          <div class="options">
+            <label><input type="radio" name="q48" value="a" /> a) Y-axis</label>
+            <label><input type="radio" name="q48" value="b" /> b) X-axis</label>
+            <label><input type="radio" name="q48" value="c" /> c) Z-axis</label>
+            <label><input type="radio" name="q48" value="d" /> d) None</label>
+          </div>
+        </div>
+      </div>
+
+      <h2>Fill in the Blanks (24)</h2>
+      <div class="question-grid">
+        <div class="question-box">
+          <p>49. The powerhouse of the cell is the ______.</p>
+          <input type="text" name="q49" />
+        </div>
+
+        <div class="question-box">
+          <p>50. Photosynthesis takes place in the ______.</p>
+          <input type="text" name="q50" />
+        </div>
+
+        <div class="question-box">
+          <p>51. Amoeba reproduces by ______ fission.</p>
+          <input type="text" name="q51" />
+        </div>
+
+        <div class="question-box">
+          <p>52. The lens you look through in a microscope is called the ______.</p>
+          <input type="text" name="q52" />
+        </div>
+
+        <div class="question-box">
+          <p>
+            53. Diffusion is the movement of particles from ______ concentration to ______
+            concentration.
+          </p>
+          <input type="text" name="q53" />
+        </div>
+
+        <div class="question-box">
+          <p>54. A pure substance shows a ______ line at its melting point.</p>
+          <input type="text" name="q54" />
+        </div>
+
+        <div class="question-box">
+          <p>55. A funnel is ______-shaped.</p>
+          <input type="text" name="q55" />
+        </div>
+
+        <div class="question-box">
+          <p>56. A measuring cylinder is used to measure ______.</p>
+          <input type="text" name="q56" />
+        </div>
+
+        <div class="question-box">
+          <p>57. The rubber tube of a Bunsen burner carries ______ to the burner.</p>
+          <input type="text" name="q57" />
+        </div>
+
+        <div class="question-box">
+          <p>58. The air hole of a Bunsen burner controls the flow of ______.</p>
+          <input type="text" name="q58" />
+        </div>
+
+        <div class="question-box">
+          <p>59. Methane is the ______ used in a Bunsen burner.</p>
+          <input type="text" name="q59" />
+        </div>
+
+        <div class="question-box">
+          <p>60. Closing the air hole produces a ______ flame.</p>
+          <input type="text" name="q60" />
+        </div>
+
+        <div class="question-box">
+          <p>61. On a graph, the dependent variable is plotted on the ______ axis.</p>
+          <input type="text" name="q61" />
+        </div>
+
+        <div class="question-box">
+          <p>62. On a graph, the independent variable is plotted on the ______ axis.</p>
+          <input type="text" name="q62" />
+        </div>
+
+        <div class="question-box">
+          <p>63. Graph points should be plotted with a sharp ______.</p>
+          <input type="text" name="q63" />
+        </div>
+
+        <div class="question-box">
+          <p>64. A graph must always have a ______ and labelled axes.</p>
+          <input type="text" name="q64" />
+        </div>
+
+        <div class="question-box">
+          <p>65. The pigment in chloroplasts that captures light is called ______.</p>
+          <input type="text" name="q65" />
+        </div>
+
+        <div class="question-box">
+          <p>66. Binary fission produces ______ daughter cells.</p>
+          <input type="text" name="q66" />
+        </div>
+
+        <div class="question-box">
+          <p>67. The coarse focus knob moves the stage ______.</p>
+          <input type="text" name="q67" />
+        </div>
+
+        <div class="question-box">
+          <p>68. Diffusion in gases is ______ compared to liquids.</p>
+          <input type="text" name="q68" />
+        </div>
+
+        <div class="question-box">
+          <p>69. Impurities ______ the melting point and make it less sharp.</p>
+          <input type="text" name="q69" />
+        </div>
+
+        <div class="question-box">
+          <p>70. A measuring cylinder has ______ marks to measure volume.</p>
+          <input type="text" name="q70" />
+        </div>
+
+        <div class="question-box">
+          <p>71. The collar of a Bunsen burner controls the ______ hole.</p>
+          <input type="text" name="q71" />
+        </div>
+
+        <div class="question-box">
+          <p>72. Respiration in mitochondria releases ______ for the cell.</p>
+          <input type="text" name="q72" />
+        </div>
+      </div>
+
+      <h2>Open-Ended Questions (12)</h2>
+      <div class="question-grid">
+        <div class="question-box">
+          <p>73. Explain why diffusion happens faster at higher temperatures.</p>
+          <textarea name="q73"></textarea>
+        </div>
+
+        <div class="question-box">
+          <p>74. Describe how the collar and air hole of a Bunsen burner control the flame.</p>
+          <textarea name="q74"></textarea>
+        </div>
+
+        <div class="question-box">
+          <p>
+            75. Why do pure substances show a flat line at their melting point on a heating
+            graph?
+          </p>
+          <textarea name="q75"></textarea>
+        </div>
+
+        <div class="question-box">
+          <p>76. Compare the functions of mitochondria and chloroplasts in a cell.</p>
+          <textarea name="q76"></textarea>
+        </div>
+
+        <div class="question-box">
+          <p>77. Explain how binary fission in amoeba ensures identical daughter cells.</p>
+          <textarea name="q77"></textarea>
+        </div>
+
+        <div class="question-box">
+          <p>78. Describe the role of the eyepiece and objective lenses in magnification.</p>
+          <textarea name="q78"></textarea>
+        </div>
+
+        <div class="question-box">
+          <p>79. Why does particle size affect the rate of diffusion?</p>
+          <textarea name="q79"></textarea>
+        </div>
+
+        <div class="question-box">
+          <p>80. Explain how impurities change the melting point of a substance.</p>
+          <textarea name="q80"></textarea>
+        </div>
+
+        <div class="question-box">
+          <p>81. Describe the difference between a funnel and a measuring cylinder.</p>
+          <textarea name="q81"></textarea>
+        </div>
+
+        <div class="question-box">
+          <p>82. Why is methane used as the fuel in a Bunsen burner?</p>
+          <textarea name="q82"></textarea>
+        </div>
+
+        <div class="question-box">
+          <p>83. Explain why graphs must have labelled axes and a clear title.</p>
+          <textarea name="q83"></textarea>
+        </div>
+
+        <div class="question-box">
+          <p>84. Describe how respiration provides energy for movement and growth in cells.</p>
+          <textarea name="q84"></textarea>
+        </div>
+      </div>
+
+      <div class="no-print">
+        <button type="button" onclick="checkAnswers()">Finish</button>
+        <div id="results"></div>
+      </div>
+    </div>
+
+    <script type="application/json" id="answer-key">
+      {
+        "q1": "b",
+        "q2": "b",
+        "q3": "c",
+        "q4": "d",
+        "q5": "a",
+        "q6": "b",
+        "q7": "a",
+        "q8": "b",
+        "q9": "c",
+        "q10": "b",
+        "q11": "a",
+        "q12": "d",
+        "q13": "a",
+        "q14": "b",
+        "q15": "b",
+        "q16": "a",
+        "q17": "a",
+        "q18": "b",
+        "q19": "c",
+        "q20": "d",
+        "q21": "a",
+        "q22": "b",
+        "q23": "a",
+        "q24": "a",
+        "q25": "a",
+        "q26": "b",
+        "q27": "c",
+        "q28": "d",
+        "q29": "d",
+        "q30": "b",
+        "q31": "c",
+        "q32": "d",
+        "q33": "a",
+        "q34": "b",
+        "q35": "c",
+        "q36": "d",
+        "q37": "a",
+        "q38": "b",
+        "q39": "a",
+        "q40": "d",
+        "q41": "a",
+        "q42": "b",
+        "q43": "b",
+        "q44": "b",
+        "q45": "b",
+        "q46": "b",
+        "q47": "a",
+        "q48": "b"
+      }
+    </script>
+
+    <script>
+      const answerKey = JSON.parse(document.getElementById("answer-key").textContent);
+
+      function escapeHtml(value) {
+        return String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      function getQuestionText(name) {
+        const field = document.querySelector(`[name="${name}"]`);
+        if (!field) {
+          return "";
+        }
+        const questionBox = field.closest(".question-box");
+        if (!questionBox) {
+          return "";
+        }
+        const questionText = questionBox.querySelector("p");
+        return questionText ? questionText.textContent.trim() : "";
+      }
+
+      function getMcqAnswer(name) {
+        const checked = document.querySelector(`input[name="${name}"]:checked`);
+        return checked ? checked.value.toUpperCase() : "No answer";
+      }
+
+      function getTextAnswer(name) {
+        const field = document.querySelector(`[name="${name}"]`);
+        if (!field) {
+          return "No answer";
+        }
+        const value = field.value.trim();
+        return value ? value : "No answer";
+      }
+
+      function generatePromptText() {
+        const lines = ["Create a study guide based on the following answers:"];
+
+        for (let i = 1; i <= 48; i += 1) {
+          const name = `q${i}`;
+          const question = escapeHtml(getQuestionText(name));
+          const answer = escapeHtml(getMcqAnswer(name));
+          lines.push(`Q${i}: ${question}`);
+          lines.push(`Answer: ${answer}`);
+        }
+
+        for (let i = 49; i <= 72; i += 1) {
+          const name = `q${i}`;
+          const question = escapeHtml(getQuestionText(name));
+          const answer = escapeHtml(getTextAnswer(name));
+          lines.push(`Q${i}: ${question}`);
+          lines.push(`Answer: ${answer}`);
+        }
+
+        for (let i = 73; i <= 84; i += 1) {
+          const name = `q${i}`;
+          const question = escapeHtml(getQuestionText(name));
+          const answer = escapeHtml(getTextAnswer(name));
+          lines.push(`Q${i}: ${question}`);
+          lines.push(`Answer: ${answer}`);
+        }
+
+        return lines.join("\n");
+      }
+
+      function checkAnswers() {
+        let score = 0;
+        const total = Object.keys(answerKey).length;
+
+        Object.keys(answerKey).forEach((key) => {
+          const radios = document.getElementsByName(key);
+          for (const radio of radios) {
+            if (radio.checked && radio.value === answerKey[key]) {
+              score += 1;
+              break;
+            }
+          }
+        });
+
+        const results = document.getElementById("results");
+        results.innerHTML = "";
+
+        const scoreLine = document.createElement("div");
+        scoreLine.textContent = `You scored ${score} out of ${total} in the MCQ section.`;
+        results.appendChild(scoreLine);
+
+        const promptBlock = document.createElement("pre");
+        promptBlock.innerHTML = generatePromptText();
+        results.appendChild(promptBlock);
+      }
+
+    </script>
+  </body>
+</html>
